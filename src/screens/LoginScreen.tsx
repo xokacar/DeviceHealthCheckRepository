@@ -1,11 +1,11 @@
 import React from "react";
 import { View, StyleSheet, TextInput, Text } from "react-native";
-import { Input } from "../components/Input";
+import {InputComponent} from "../components/Input/Input";
 
 export const LoginScreen = () => {
     return (
         <View>
-            <Input />
+            <InputComponent />
         </View>
     );
 };
