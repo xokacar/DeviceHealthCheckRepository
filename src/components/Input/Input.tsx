@@ -1,7 +1,6 @@
 import { View, Button, Dimensions } from "react-native";
 import { TextInput as PaperInput } from "react-native-paper";
 import { InputStyle } from "./styles";
-import { Logo } from "../Logo/Logo";
 
 
 
@@ -11,7 +10,6 @@ export const InputComponent = ({...props}) => {
         <View
         style={styles.container}
         >
-            <Logo />
         <PaperInput
             style={styles.input}
             placeholder="e-mail"
