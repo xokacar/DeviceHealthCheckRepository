@@ -1,15 +1,13 @@
-import { View, Button, Dimensions } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import { TextInput as PaperInput } from "react-native-paper";
 import { InputStyle } from "./styles";
-
+import {Button } from '../Button/Button'
 
 
 export const InputComponent = ({...props}) => {
     const styles = InputStyle();
     return (
-        <View
-        style={styles.container}
-        >
+        <View>
         <PaperInput
             style={styles.input}
             placeholder="e-mail"
@@ -19,9 +17,6 @@ export const InputComponent = ({...props}) => {
             <PaperInput
             style={styles.input}
             placeholder="Password"
-            />
-            <Button
-            title="Login"
             />
             </View>
     );

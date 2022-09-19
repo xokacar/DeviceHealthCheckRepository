@@ -18,12 +18,5 @@ export const InputStyle = () => {
             padding: windowHeight * 0.01,    
             width: windowWidth * 0.8,
         },
-        button: {
-            width: '100%',
-            marginVertical: 10,
-            paddingVertical: 12,
-            border: 1,
-            borderRadius: 4,
-          },
     });
     }
