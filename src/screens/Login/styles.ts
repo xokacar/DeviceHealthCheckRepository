@@ -7,7 +7,7 @@ const windowHeight = Dimensions.get('window').height;
 export const LoginScreenStyle = () => {
     return StyleSheet.create({
         container: {
-            width: '100%',
+            width: '70%',
             marginVertical: 12,
         },  
     });
