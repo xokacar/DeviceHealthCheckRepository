@@ -3,7 +3,7 @@ import { View } from "react-native";
 import TextInput from "../../components/Input/TextInput";
 import Button from '../../components/Button/Button'
 import { SignupStyle } from './style';
-import { Header } from 'react-navigation-stack';
+import { Header } from '../../components/Header/Header';
 
 
 
@@ -17,7 +17,9 @@ export const SignupScreen = () => {
     <View
     style={styles.container}
     >
-      
+      <Header>
+        Create your account
+      </Header>
     <TextInput
         label="Name"
         returnKeyType="next"
@@ -49,7 +51,8 @@ export const SignupScreen = () => {
         secureTextEntry
       />
 
-      <Button mode="contained"  style={styles.button}>
+      <Button mode="contained"  style={styles.button}
+      >
         Sign Up
       </Button>
       </View>

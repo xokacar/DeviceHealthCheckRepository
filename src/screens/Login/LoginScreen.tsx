@@ -3,7 +3,7 @@ import { View } from "react-native";
 import TextInput from "../../components/Input/TextInput";
 import { LoginScreenStyle } from './styles'
 import Button from '../../components/Button/Button'
-
+import { Header } from "../../components/Header/Header";
 
 export const LoginScreen = () => {
     const [email, setEmail] = useState({ value: '', error: ''});
@@ -16,6 +16,9 @@ export const LoginScreen = () => {
         <View
         style={styles.container}
         >
+            <Header>
+              Welcome back.
+            </Header>
             <TextInput
             label="Email"
             returnKeyType="next"
