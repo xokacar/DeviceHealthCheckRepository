@@ -1,11 +1,16 @@
 import  React, {useState, memo} from "react";
-import { View } from "react-native";
+import { View,Text,TouchableOpacity } from "react-native";
 import TextInput from "../../components/Input/TextInput";
 import { LoginScreenStyle } from './styles'
 import Button from '../../components/Button/Button'
 import { Header } from "../../components/Header/Header";
+import { Navigation } from '../../types';
 
-export const LoginScreen = () => {
+type Props = {
+  navigation: Navigation;
+};
+
+export const LoginScreen = ({ navigation }: Props) => {
     const [email, setEmail] = useState({ value: '', error: ''});
     const [password, setPassword] = useState({ value: '', error: '' });
 
@@ -38,6 +43,13 @@ export const LoginScreen = () => {
             <Button
             mode='contained'
             children={'Login'}/>
+            <Text >Don’t have an account? </Text>
+        <TouchableOpacity>
+          <Text
+          style={styles.link}
+          onPress={() => navigation.navigate('SignupScreen')}
+          >Sign up</Text>
+          </TouchableOpacity>
         </View>
     );
 };
