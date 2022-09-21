@@ -1,25 +1,25 @@
 import React, {useState} from 'react';
-import { View } from "react-native";
+import { View,Text,TouchableOpacity } from "react-native";
 import TextInput from "../../components/Input/TextInput";
 import Button from '../../components/Button/Button'
 import { SignupStyle } from './style';
 import { Header } from '../../components/Header/Header';
+import { Navigation } from '../../types';
+
+type Props = {
+  navigation: Navigation;
+};
 
 
-
-export const SignupScreen = () => {
+export const SignupScreen = ({ navigation }: Props) => {
     const [name, setName] = useState({ value: '', error: '' });
-  const [email, setEmail] = useState({ value: '', error: '' });
-  const [password, setPassword] = useState({ value: '', error: '' });
-  const styles = SignupStyle();
+    const [email, setEmail] = useState({ value: '', error: '' });
+    const [password, setPassword] = useState({ value: '', error: '' });
+    const styles = SignupStyle();
 
   return (
-    <View
-    style={styles.container}
-    >
-      <Header>
-        Create your account
-      </Header>
+    <View style={styles.container}>
+      <Header>Create your account</Header>
     <TextInput
         label="Name"
         returnKeyType="next"
@@ -50,11 +50,13 @@ export const SignupScreen = () => {
         errorText={password.error}
         secureTextEntry
       />
-
-      <Button mode="contained"  style={styles.button}
-      >
-        Sign Up
-      </Button>
+<Button mode='contained' style={styles.button}>
+            Sign Up
+          </Button>
+        <Text style={styles.label}>Already have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')} >
+          <Text style={styles.link}>Login</Text>
+        </TouchableOpacity>
       </View>
   );
 }

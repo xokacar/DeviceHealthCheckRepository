@@ -4,11 +4,15 @@ import { theme } from "../../core/theme";
 export const SignupStyle = () => {
     return StyleSheet.create({
     container: {
-        width: '70%',
-        marginVertical: 12,
+            flex: 1,
+            backgroundColor: '#fff',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 30,
     },
     label: {
         color: theme.colors.secondary,
+        fontStyle: 'italic'
     },
     button: {
         marginTop: 24,
