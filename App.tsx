@@ -1,13 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { LoginScreen } from './src/screens/Login/LoginScreen';
 
-export default function App() {
+import { StyleSheet } from 'react-native';
+import {Provider} from 'react-native-paper';
+import {theme} from './src/core/theme'
+import {Navigation} from './src/types'
+import App from './src/index'
+
+type Props = {
+  navigation: Navigation;
+};
+
+export default function Application() {
   return (
-    <View style={styles.container}>
-      <LoginScreen />
-      <StatusBar style="auto" />
-    </View>
+    <Provider theme={theme} >
+      <App />
+    </Provider>
   );
 }
 
