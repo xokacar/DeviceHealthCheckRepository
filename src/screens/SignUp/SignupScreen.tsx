@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { View,Text,TouchableOpacity } from "react-native";
-import TextInput from "../../components/Input/TextInput";
-import Button from '../../components/Button/Button'
+import TextInput from "../../components/common/Input/TextInput";
+import Button from '../../components/common/Button/Button'
 import { SignupStyle } from './style';
-import { Header } from '../../components/Header/Header';
+import { Header } from '../../components/common/Header/Header';
 import { Navigation } from '../../types';
 
 type Props = {
