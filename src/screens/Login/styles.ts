@@ -18,6 +18,9 @@ export const LoginScreenStyle = () => {
         link: {
             fontWeight: 'bold',
             color: theme.colors.primary,
-        }
+        },
+        label: {
+            fontStyle: 'italic'
+        },
     });
 }
