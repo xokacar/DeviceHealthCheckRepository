@@ -1,9 +1,9 @@
 import  React, {useState, memo} from "react";
 import { View,Text,TouchableOpacity } from "react-native";
-import TextInput from "../../components/Input/TextInput";
+import TextInput from "../../components/common/Input/TextInput";
 import { LoginScreenStyle } from './styles'
 import Button from '../../components/common/Button/Button'
-import { Header } from "../../components/Header/Header";
+import { Header } from "../../components/common/Header/Header";
 import { Navigation } from '../../types';
 import { SafeAreaView } from "react-navigation";
 
