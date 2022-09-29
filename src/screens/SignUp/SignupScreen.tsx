@@ -15,6 +15,7 @@ export const SignupScreen = ({ navigation }: Props) => {
     const [name, setName] = useState({ value: '', error: '' });
     const [email, setEmail] = useState({ value: '', error: '' });
     const [password, setPassword] = useState({ value: '', error: '' });
+    const [repeatPassword, setRepeatPassword] = useState({ value: '', error: '' });
     const styles = SignupStyle();
 
   return (
@@ -48,6 +49,15 @@ export const SignupScreen = ({ navigation }: Props) => {
         onChangeText={text => setPassword({ value: text, error: '' })}
         error={!!password.error}
         errorText={password.error}
+        secureTextEntry
+      />
+      <TextInput
+        label=" Repeat Password"
+        returnKeyType="done"
+        value={repeatPassword.value}
+        onChangeText={text => setRepeatPassword({ value: text, error: '' })}
+        error={!!repeatPassword.error}
+        errorText={repeatPassword.error}
         secureTextEntry
       />
 <Button mode='contained' style={styles.button}>
