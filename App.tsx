@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import {Provider} from 'react-native-paper';
 import {theme} from './src/core/theme'
 import {Navigation} from './src/types'
-import App, { TheTabs } from './src/index'
+import {Navigator} from './src/index'
 import { NavigationContainer } from '@react-navigation/native';
 
 
@@ -15,7 +15,7 @@ export default function Application() {
   return (
     <Provider theme={theme} >
       <NavigationContainer>
-        <App />
+        <Navigator />
       </NavigationContainer>
     </Provider>
   );
