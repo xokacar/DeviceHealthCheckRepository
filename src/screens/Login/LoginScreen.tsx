@@ -1,11 +1,14 @@
-import  React, {useState, memo} from "react";
-import { View,Text,TouchableOpacity } from "react-native";
+import  React, {useState, createContext, Children} from "react";
+import { Text,TouchableOpacity } from "react-native";
 import TextInput from "../../components/common/Input/TextInput";
 import { LoginScreenStyle } from './styles'
 import Button from '../../components/common/Button/Button'
 import { Header } from "../../components/common/Header/Header";
 import { Navigation } from '../../types';
 import { SafeAreaView } from "react-navigation";
+import  BouncyCheckbox  from 'react-native-bouncy-checkbox'
+import {theme} from '../../core/theme'
+
 
 type Props = {
   navigation: Navigation;
@@ -14,8 +17,9 @@ type Props = {
 export const LoginScreen = ({ navigation }: Props) => {
     const [email, setEmail] = useState({ value: '', error: ''});
     const [password, setPassword] = useState({ value: '', error: '' });
+    const AuthContext = React.createContext(0);
+    const [checked, setChecked] = React.useState(false);
 
-    
 
     const styles = LoginScreenStyle();
     return (
@@ -41,6 +45,21 @@ export const LoginScreen = ({ navigation }: Props) => {
             errorText={password.error}
             secureTextEntry
             />
+             <SafeAreaView
+            style={styles.checkboxView}
+            >
+            <Text
+            style={styles.checkboxText}
+            >Remember Email</Text>
+            <TouchableOpacity
+            >
+            <BouncyCheckbox
+            fillColor= {theme.colors.primary}
+            onPress={() => {
+            setChecked(!checked);
+          }} />
+          </TouchableOpacity>
+          </SafeAreaView>
             <Button
             onPress={() => navigation.navigate('HomeScreen')}
             mode='contained'
@@ -52,12 +71,7 @@ export const LoginScreen = ({ navigation }: Props) => {
           onPress={() => navigation.navigate('SignupScreen')}
           >Sign up</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text
-            style={styles.link}
-            onPress={() => navigation.navigate('DashboardScreen')}
-            >Dashboard</Text>
-          </TouchableOpacity>
+          
         </SafeAreaView>
     );
 };

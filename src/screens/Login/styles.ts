@@ -22,5 +22,13 @@ export const LoginScreenStyle = () => {
         label: {
             fontStyle: 'italic'
         },
+        checkboxView: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+        },
+        checkboxText : {
+            marginEnd: 10,
+        }
     });
 }
