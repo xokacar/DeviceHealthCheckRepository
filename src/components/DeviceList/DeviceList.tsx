@@ -1,7 +1,7 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import { SafeAreaView, View, FlatList, Text } from 'react-native';
 import { DeviceListStyle } from './styles';
-import devData, { DeviceDATA } from './DeviceData';
+import  { DeviceDATA } from './DeviceData';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
   interface renderItemProps {
@@ -29,15 +29,12 @@ export const DeviceList= ( {searchPhrase, data, setClicked}) => {
       );
 
       const renderItem = ({ item }) => {
-        // when no input, show all
         if (searchPhrase === "") {
           return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
         }
-        // filter of the title
         if (item.title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
           return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
         }
-        // filter of the ip
         if (item.ip.includes(searchPhrase.trim().replace(/\s/g, ""))) {
           return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
         }
