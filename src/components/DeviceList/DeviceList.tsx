@@ -11,10 +11,52 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
     isWorking: boolean;
   }
   
+  let color : string;
+
+  const styles = DeviceListStyle();
+
+export const DeviceList= ( {searchPhrase, data, setClicked}) => {
+  const Item: FC<renderItemProps>= ({ title,ip,port }) => (
+    <View style={styles.item}>
+      <Text style={styles.title} onPress={alert}>{title}</Text>
+      <Text style={styles.ipSection}>{ip}</Text>
+      <Text style={styles.portSection}>{port}</Text>
+      <SafeAreaView style={styles.statusSection} >
+      <MaterialCommunityIcons
+      name="circle" size={14} color={color}  />
+      </SafeAreaView>
+    </View>
+      );
+
+      const renderItem = ({ item }) => {
+        // when no input, show all
+        if (searchPhrase === "") {
+          return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
+        }
+        // filter of the title
+        if (item.title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
+          return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
+        }
+        // filter of the ip
+        if (item.ip.includes(searchPhrase.trim().replace(/\s/g, ""))) {
+          return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
+        }
+      };
+
+    return (
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          contentContainerStyle={{flexGrow:1}}
+          data={DeviceDATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+        />
+      </SafeAreaView>
+    );
+  }
 
 
-  
-//   export const deviceStatUseState = (item) => {
+  //   export const deviceStatUseState = (item) => {
 //   const [deviceStatus, setdeviceStatus] = useState<devData[]>(DeviceDATA);
  //   const toggleDeviceStatus = (workStat: devData) => {
 
@@ -33,44 +75,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 //     })
 //     setdeviceStatus(deviceStatushHandler);
 // };
-
-  let color : string;
-
-
-  const styles = DeviceListStyle();
-
-
-
-export const DeviceList= () => {
-  const Item: FC<renderItemProps>= ({ title,ip,port }) => (
-    <View style={styles.item}>
-      <Text style={styles.title} onPress={alert}>{title}</Text>
-      <Text style={styles.ipSection}>{ip}</Text>
-      <Text style={styles.portSection}>{port}</Text>
-      <SafeAreaView style={styles.statusSection} >
-      <MaterialCommunityIcons
-      name="circle" size={14} color={color}  />
-      </SafeAreaView>
-    </View>
-      );
-
-    const renderItem = ({ item }) => (
-      <SafeAreaView>
-      <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
-      </SafeAreaView>
-    );
-
-    return (
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          contentContainerStyle={{flexGrow:1}}
-          data={DeviceDATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
-      </SafeAreaView>
-    );
-  }
 
 
     // const handleNoDevices = () => {
