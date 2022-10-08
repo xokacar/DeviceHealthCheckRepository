@@ -8,7 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
     title: string;
     ip: string;
     port: number;
-    isWorking: string;
+    status: string;
   }
   
   const styles = DeviceListStyle();
@@ -16,15 +16,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export const DeviceList= ( {searchPhrase, data, setClicked } ) => {
 
 
-  const Item: FC<renderItemProps>= ({ title,ip,port,isWorking }) => { 
+  const Item: FC<renderItemProps>= ({ title,ip,port,status }) => { 
     const statusIcon = () => { 
-      if (isWorking === 'online') {
+      if (status === 'online') {
         return <MaterialCommunityIcons name="circle" size={16} color="#66ff00" />
       }
-      else if (isWorking === 'offline') {
+      else if (status === 'offline') {
         return <MaterialCommunityIcons name="circle" size={16} color="red" />
       }
-      else if (isWorking === 'unknown') {
+      else if (status === 'unknown') {
         return <MaterialCommunityIcons name="circle" size={16} color="orange" />
       }
     }
@@ -44,13 +44,13 @@ export const DeviceList= ( {searchPhrase, data, setClicked } ) => {
 
       const renderItem = ({ item }) => {
         if (searchPhrase === "") {
-          return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
+          return  <Item title={item.title}  ip={item.ip} port={item.port} status={item.status}/>
         }
         if (item.title.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
-          return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
+          return  <Item title={item.title}  ip={item.ip} port={item.port} status={item.status}/>
         }
         if (item.ip.includes(searchPhrase.trim().replace(/\s/g, ""))) {
-          return  <Item title={item.title}  ip={item.ip} port={item.port} isWorking={item.isWorking}/>
+          return  <Item title={item.title}  ip={item.ip} port={item.port} status={item.status}/>
         }
       };
 
@@ -66,70 +66,3 @@ export const DeviceList= ( {searchPhrase, data, setClicked } ) => {
     );
   }
 
-
-  //   export const deviceStatUseState = (item) => {
-//   const [deviceStatus, setdeviceStatus] = useState<devData[]>(DeviceDATA);
- //   const toggleDeviceStatus = (workStat: devData) => {
-
-//     const deviceStatushHandler = deviceStatus.map((isWorking ) => {
-
-//       if (isWorking.isWorking === item.isWorking) {
-//         return (
-//           {  ...isWorking, color:  '#00ff00'  }
-//         )
-//       }
-//       else  {
-//         return (
-//           { ...isWorking, color:  '#ff0000'  }
-//          )
-//       }
-//     })
-//     setdeviceStatus(deviceStatushHandler);
-// };
-
-
-    // const handleNoDevices = () => {
-  //   if (DeviceDATA.length === 0) {
-  //     return (
-  //       <SafeAreaView style={styles.container}>
-  //         <Text >No Devices Found</Text>
-  //       </SafeAreaView>
-  //     );
-  //   }
-
-
-
-//   if (workStat.isWorking === true) {
-//     color = 'green';
-// } else {
-//     color = 'red';
-// }
-
-// workStat.isWorking ? color = 'green' : color = 'red';
-  // const handleDeviceStatus = (workStat: devData) => {
-  //   const closedDeviceStatus = deviceStatus.map((title ) => {
-  //     workStat.isWorking ? color = 'green' : color = 'red';
-  //   },
-  // };
-  // const handleWorkStatDevice = (workStat: devData) => {
-  //   workStat.isWorking ? color = 'green' : color = 'red';
-  // };
-  
-  // const handleWorkStatDevice = (workStat: devData) => {
-  //   workStat.isWorking ? color = 'green' : color = 'red';
-  // };
-//  const handleDeviceStatus = (workStat: devData) => {
-//     const closedDeviceStatus = deviceStatus.map((isWorking ) => {
-//       workStat.isWorking ? color = 'green' : color = 'red';
-//     },
-//   };
-
-// const changeDeviceStatus = (id: number) => {
-//   setdeviceStatus((prev) => {
-//     return prev.map((item) => {
-//       if (item.id === id) {
-//         return {
-//           ...item,
-//           isWorking: !item.isWorking,
-//         };
-//       }
