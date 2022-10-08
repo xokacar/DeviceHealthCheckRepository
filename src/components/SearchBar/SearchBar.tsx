@@ -32,6 +32,7 @@ export const SearchBar = ( {clicked, searchPhrase, setSearchPhrase, setClicked} 
         onPress={() => {
           Keyboard.dismiss();
           setClicked(false);
+          setSearchPhrase("");
         } }
         children={'cancel'}
         />
