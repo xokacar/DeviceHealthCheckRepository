@@ -21,14 +21,7 @@ export const SignupScreen = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
       <Header>Create your account</Header>
-    <TextInput
-        label="Name"
-        returnKeyType="next"
-        value={name.value}
-        onChangeText={text => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
-      />
+   
 
       <TextInput
         label="Email"
@@ -52,13 +45,14 @@ export const SignupScreen = ({ navigation }: Props) => {
         secureTextEntry
       />
       <TextInput
-        label=" Repeat Password"
+        label=" Confirm Password"
         returnKeyType="done"
         value={repeatPassword.value}
         onChangeText={text => setRepeatPassword({ value: text, error: '' })}
         error={!!repeatPassword.error}
         errorText={repeatPassword.error}
         secureTextEntry
+        
       />
 <Button mode='contained' style={styles.button}>
             Sign Up
