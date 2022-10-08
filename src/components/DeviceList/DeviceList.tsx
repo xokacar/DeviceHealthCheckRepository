@@ -25,7 +25,7 @@ export const DeviceList= ( {searchPhrase, data, setClicked } ) => {
         return <MaterialCommunityIcons name="circle" size={16} color="red" />
       }
       else if (status === 'unknown') {
-        return <MaterialCommunityIcons name="circle" size={16} color="orange" />
+        return <MaterialCommunityIcons name="circle" size={16} color="yellow" />
       }
     }
     
