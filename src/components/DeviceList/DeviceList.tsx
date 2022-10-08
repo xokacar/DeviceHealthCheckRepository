@@ -4,29 +4,43 @@ import { DeviceListStyle } from './styles';
 import  { DeviceDATA } from './DeviceData';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-  interface renderItemProps {
+  export interface renderItemProps {
     title: string;
     ip: string;
     port: number;
-    isWorking: boolean;
+    isWorking: string;
   }
   
-  let color : string;
-
   const styles = DeviceListStyle();
+  
+export const DeviceList= ( {searchPhrase, data, setClicked } ) => {
 
-export const DeviceList= ( {searchPhrase, data, setClicked}) => {
-  const Item: FC<renderItemProps>= ({ title,ip,port }) => (
+
+  const Item: FC<renderItemProps>= ({ title,ip,port,isWorking }) => { 
+    const statusIcon = () => { 
+      if (isWorking === 'online') {
+        return <MaterialCommunityIcons name="circle" size={16} color="#66ff00" />
+      }
+      else if (isWorking === 'offline') {
+        return <MaterialCommunityIcons name="circle" size={16} color="red" />
+      }
+      else if (isWorking === 'unknown') {
+        return <MaterialCommunityIcons name="circle" size={16} color="orange" />
+      }
+    }
+    
+    return (
     <View style={styles.item}>
       <Text style={styles.title} onPress={alert}>{title}</Text>
       <Text style={styles.ipSection}>{ip}</Text>
       <Text style={styles.portSection}>{port}</Text>
       <SafeAreaView style={styles.statusSection} >
-      <MaterialCommunityIcons
-      name="circle" size={14} color={color}  />
+        {statusIcon()}
       </SafeAreaView>
     </View>
-      );
+      )   
+  };
+
 
       const renderItem = ({ item }) => {
         if (searchPhrase === "") {
