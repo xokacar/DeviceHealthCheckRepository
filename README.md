@@ -14,4 +14,4 @@ https://user-images.githubusercontent.com/44809357/216168174-cd55f7c9-9b03-4010-
 
 ## License
 
-Will be revised.
+BSD 3-Clause "New" or "Revised" License
