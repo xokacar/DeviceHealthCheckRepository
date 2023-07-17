@@ -6,12 +6,20 @@ import  Button  from '../../components/common/Button/Button'
 import {DeviceList} from '../../components/DeviceList/DeviceList'
 import {SearchBar} from '../../components/SearchBar/SearchBar'
 import { DeviceDATA } from '../../components/DeviceList/DeviceData';
+import { Navigation } from '../../types';
+import { DeviceAddScreen } from '../DeviceAdd/DeviceAdd'
 
-export const DashboardScreen = () => {
+
+
+type Props = {
+    navigation: Navigation;
+  };
+  
+
+export const DashboardScreen = ({ navigation }: Props) => {
 
     const [searchPhrase, setSearchPhrase] = useState("");
     const [clicked, setClicked] = useState(false);
-    const [theData, setTheData] = useState();
     const styles = DashboardStyle();
     const data = DeviceDATA;
 
@@ -19,28 +27,22 @@ export const DashboardScreen = () => {
         <SafeAreaView
         style={styles.container}
         >
-            <Header>
-                Name of Organization
-            </Header>
+            <Header> Name of Organization</Header>
+            
             <SearchBar
             searchPhrase={searchPhrase}
             setSearchPhrase={setSearchPhrase}
             clicked={clicked}
             setClicked={setClicked}
             />
+
             <DeviceList
             searchPhrase={searchPhrase}
             data={data}
             setClicked={setClicked}
             />
             
-            <TouchableOpacity>
-            <Button
-            style={styles.button}
-            children={'Add Device'}
-            mode='contained'
-            />
-            </TouchableOpacity>
+            
         </SafeAreaView>
     )
 }

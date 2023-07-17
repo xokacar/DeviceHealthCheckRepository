@@ -12,10 +12,7 @@ export const OrganizationPanelScreen = () => {
         <SafeAreaView
         style={styles.container}
         >
-            <SafeAreaView style={styles.header}>
-        <Header
-        >Organization Name</Header>
-        </SafeAreaView>
+        <Header> Organization Name </Header>
         <UserList />
         </SafeAreaView>
     )

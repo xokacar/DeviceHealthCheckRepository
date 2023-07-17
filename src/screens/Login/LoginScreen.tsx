@@ -1,4 +1,4 @@
-import  React, {useState, createContext, Children} from "react";
+import  React, {useState} from "react";
 import { Text,TouchableOpacity } from "react-native";
 import TextInput from "../../components/common/Input/TextInput";
 import { LoginScreenStyle } from './styles'
@@ -8,6 +8,8 @@ import { Navigation } from '../../types';
 import { SafeAreaView } from "react-navigation";
 import  BouncyCheckbox  from 'react-native-bouncy-checkbox'
 import {theme} from '../../core/theme'
+import axios from 'axios';
+
 
 
 type Props = {
@@ -15,11 +17,12 @@ type Props = {
 };
 
 export const LoginScreen = ({ navigation }: Props) => {
+    const axios = require('axios').default;
     const [email, setEmail] = useState({ value: '', error: ''});
     const [password, setPassword] = useState({ value: '', error: '' });
     const AuthContext = React.createContext(0);
     const [checked, setChecked] = React.useState(false);
-
+    
 
     const styles = LoginScreenStyle();
     return (
@@ -29,6 +32,7 @@ export const LoginScreen = ({ navigation }: Props) => {
             <Header>
               Welcome back.
             </Header>
+            
             <TextInput
             label="Email"
             returnKeyType="next"
@@ -36,6 +40,7 @@ export const LoginScreen = ({ navigation }: Props) => {
             textContentType="emailAddress"
             keyboardType="email-address"
             />
+
             <TextInput
             label="Password"
             returnKeyType="done"
@@ -61,7 +66,6 @@ export const LoginScreen = ({ navigation }: Props) => {
           </TouchableOpacity>
           </SafeAreaView>
             <Button
-            onPress={() => navigation.navigate('HomeScreen')}
             mode='contained'
             children={'Login'}/>
             <Text style={styles.label}>Don't have an account? </Text>

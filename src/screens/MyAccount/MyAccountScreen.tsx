@@ -5,7 +5,6 @@ import { List } from 'react-native-paper';
 import {theme} from '../../core/theme'
 
 
-
 export const MyAccountScreen = () => {
     const styles = MyAccountStyle();
     return (
@@ -32,7 +31,8 @@ export const MyAccountScreen = () => {
             <List.Item
             title="Change Phone Number"
             description="Click to change your credentials"
-            left={props => <List.Icon {...props} icon="lock" color={theme.colors.primary} />}
+            left={props => <List.Icon {...props} icon="lock" color={theme.colors.primary} />
+        }
             />
             </List.Accordion>
             </List.Section>
